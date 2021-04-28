@@ -241,27 +241,28 @@ exec("rm " . join(" ", $removedFile));
 ```
 
 範例程式
+https://drive.google.com/file/d/1sJxaFVUpVMN3iCtw1w94pIT21JdSs118/view?usp=sharing
 
-Loop Controller
+ + Loop Controller
 
-CSV DATA SET CONFIG(測資設定)
+   + CSV DATA SET CONFIG(測資設定)
 
-fileName(選取測資)
+     + fileName(選取測資)
 
-進入API的TINKER使用複製貼上該程式片斷
+   + 進入API的TINKER使用複製貼上該程式片斷
 
-會生成test-data.zip檔案(包含各個測資，可以自行改動程式來生成不同測資)
+     + 會生成test-data.zip檔案(包含各個測資，可以自行改動程式來生成不同測資)
 
 報表與執行
 
-CMD執行(跑比較快?或者說負仔量會比較高，看電腦效能)，會生成test的報表，請在開啟jmeter 的資料夾下執行，並search_mission_con.jmx 為open的檔案位子
-
+ + CMD執行(跑比較快?或者說負仔量會比較高，看電腦效能)，會生成test的報表，請在開啟jmeter 的資料夾下執行，並search_mission_con.jmx 為open的檔案位子
+```
 del result.jtl
 rd /s /q "test"
 jmeter -Jthreads=15 -n -t C:/Users/W541/Desktop/壓測/mru/search_mission_con.jmx -l result.jtl
 jmeter -g result.jtl -e -o test
-
+```
 讀區報表轉換成index.html
-
+```
 jmeter -g result.jtl -e -o test
-
+```
