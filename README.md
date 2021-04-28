@@ -14,7 +14,7 @@
 
 
 
-    + 範例  (直接open)
+  + 範例  (直接open)
       https://drive.google.com/file/d/1jd3FR9Ylwb7dD4l3RwH8c0K9Ou6L5Dbn/view?usp=sharing
 
 #### 測試參考方面
@@ -37,112 +37,112 @@
 
 測試流程
 
-規劃測試情境
+ + 規劃測試情境
 
-要模擬APP使用情境，所以可以要加入CMS的部分一同進行測試(目前還沒加入，有點多，可能也要知道APP有沒有處理)
+   + 要模擬APP使用情境，所以可以要加入CMS的部分一同進行測試(目前還沒加入，有點多，可能也要知道APP有沒有處理)
 
-目前依據get member profile的API數據為其他壓測的參考值(暫定的依據)
+   + 目前依據get member profile的API數據為其他壓測的參考值(暫定的依據)
 
-應該定義QPS為標準
+   + 應該定義QPS為標準
 
-Queries Per Second，每秒查詢數。每秒能夠響應的查詢次數。
+     + Queries Per Second，每秒查詢數。每秒能夠響應的查詢次數。
 
-QPS是對一個特定的查詢伺服器在規定時間內所處理流量多少的衡量標準，在網際網路上，作為域名系統伺服器的機器的性能經常用每秒查詢率來衡量。每秒的響應請求數，也即是最大 吞吐能力。
+     + QPS是對一個特定的查詢伺服器在規定時間內所處理流量多少的衡量標準，在網際網路上，作為域名系統伺服器的機器的性能經常用每秒查詢率來衡量。每秒的響應請求數，也即是最大 吞吐能力。
 
-設定測試規模
+ + 設定測試規模
 
-同時幾台theard(多人)
+   + 同時幾台theard(多人)
 
-一秒直接開高
+     + 一秒直接開高
 
-瞬間流量(併發)
+       + 瞬間流量(併發)
 
-多少時間內達到該人數
+   + 多少時間內達到該人數
 
-這個會用很高的theard
+     + 這個會用很高的theard
 
-(壓力測試)
+       + (壓力測試)
 
-測試多久
+   + 測試多久
 
-同時測幾隻API(看流程Test Plan的AP數量)
+   + 同時測幾隻API(看流程Test Plan的AP數量)
 
-設定方式
+ + 設定方式
 
-123
+   + 123
 
-取得壓測資料
+ + 取得壓測資料
 
-open底下的檔案
+   + open底下的檔案
 
 操作
 
 在每個API的設定
 
-換環境測試
+ + 換環境測試
 
-在JSR223中找String key = '69e6e6b54e76bd1f877fe08b9fb80558';置換成藥測試的環境key
+   + 在JSR223中找String key = '69e6e6b54e76bd1f877fe08b9fb80558';置換成藥測試的環境key
 
-HTTP Header Manager
+   + HTTP Header Manager
 
-app-id
+     + app-id
 
-Http Requset Defaults
+   + Http Requset Defaults
 
-Server Name or IP
+     + Server Name or IP
 
-Test Plan
+ + Test Plan
 
-Run Thread Group
+   + Run Thread Group
 
-該plan下全部API是否一起跑
+     + 該plan下全部API是否一起跑
 
-各個API
+   + 各個API
 
-Thread Properties
+     + Thread Properties
 
-Number Of Threads
+       + Number Of Threads
 
-${__P(threads,)}
+         + ${__P(threads,)}
 
-或者自訂亦要開啟的數字
+         + 或者自訂亦要開啟的數字
 
-Ramp-up period
+     + Ramp-up period
 
-1
+       + 1
 
-自訂義多少時間內開到Number Of Threads的數量
+       + 自訂義多少時間內開到Number Of Threads的數量
 
-Duration
+     + Duration
 
-60
+       + 60
 
-自訂義測試多久時間
+       + 自訂義測試多久時間
 
-Loop Controller
+     + Loop Controller
 
-CSV DATA SET CONFIG(測資設定)
+       + CSV DATA SET CONFIG(測資設定)
 
-fileName(選取測資)
+         + fileName(選取測資)
 
 取得測資
 
-進入想測試的伺服器API專案的tinker
+ + 進入想測試的伺服器API專案的tinker
 
-Loop Controller
+   + Loop Controller
 
-CSV DATA SET CONFIG(測資設定)
+     + CSV DATA SET CONFIG(測資設定)
 
-fileName(選取測資)
+       + fileName(選取測資)
 
-進入API的TINKER使用複製貼上該程式片斷
+     + 進入API的TINKER使用複製貼上該程式片斷
 
-會生成test-data.zip檔案(包含各個測資，可以自行改動程式來生成不同測資)
+       + 會生成test-data.zip檔案(包含各個測資，可以自行改動程式來生成不同測資)
 
 測試程式
 
-程式解析
-
+ + 程式解析
+```
 use Illuminate\Support\Facades\Redis;
 
 //會員數量
@@ -238,7 +238,7 @@ fclose($handle);
 exec("zip test-data " . join(" ", $removedFile));
 // remove all file
 exec("rm " . join(" ", $removedFile));
-
+```
 
 範例程式
 
